@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Amor 💚</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #e35bad 0%, #f9b7e1 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .contenedor {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+        .message{
+            font-size: 1.2em;
+        }
+
+        h1 span {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        #cajaDeAmor {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-color: white;
+            border: 3px solid #4CAF50;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .puntito {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #4CAF50; 
+            border-radius: 50%; 
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.8);
+            animation: aparecer 0.3s ease-out;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>
+            Cada <span>puntito verde</span> es un
+            te amo preciosa 😘❤️
+        </h1>
+        <div id="cajaDeAmor"></div>
+        <div class="message">
+            <p>Mi amor crece por ti a cada segundo.</p>
+        </div>
+    </div>
+    <script>
+        const cajaDeAmor = document.getElementById('cajaDeAmor');
+        function crearPuntito() {
+            const puntito = document.createElement('div');
+            puntito.className = 'puntito';
+
+            const anchoCaja = cajaDeAmor.clientWidth;
+            const altoCaja = cajaDeAmor.clientHeight;
+            const posX = Math.random() * (anchoCaja - 6);
+            const posY = Math.random() * (altoCaja - 6);
+
+            puntito.style.left = posX + 'px';
+            puntito.style.top = posY + 'px';
+
+            cajaDeAmor.appendChild(puntito);
+        }
+
+        function anadirCienTeQuieros() {
+            for (let i = 0; i < 3600; i++) {
+                crearPuntito();
+            }
+        }
+        setInterval(anadirCienTeQuieros, 500);
+
+        anadirCienTeQuieros();
+
+    </script>
+</body>
+</html>
